@@ -28,7 +28,7 @@ module.exports = {
                     status: "online",
                 });
             };
-        }, ms('10s'));
+        }, ms("10s"));
 
         console.log("[Client] >> 🤖│Bot is ready");
         console.log(`[Client] >> 🔗│ID: ${client.user.id}`);
