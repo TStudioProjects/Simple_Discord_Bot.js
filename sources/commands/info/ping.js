@@ -10,23 +10,7 @@ module.exports = {
     async execute(interaction, client) {
         const author = await interaction.guild.members.cache.get(interaction.user.id);
 
-        if (!author.permissions.has(PermissionFlagsBits.SendMessages)) {
-            try {
-                await interaction.reply({ content: "**<:denied:1031285103948726322>│You dont have the permissions**" }).then(() => {
-                    setTimeout(async () => {
-                        await interaction.deleteReply().catch((error) => {
-                            if (error.code !== RESTJSONErrorCodes.UnknownMessage) {
-                                return;
-                            } else {
-                                return;
-                            };
-                        });
-                    }, ms("3s"));
-                });
-            } catch {
-                return;
-            };
-        } else if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.SendMessages)) {
+        if (!interaction.guild.members.me.permissions.has(PermissionFlagsBits.ManageMessages)) {
             try {
                 await interaction.reply({ content: "**<:denied:1031285103948726322>│I dont have the permissions**" }).then(() => {
                     setTimeout(async () => {
