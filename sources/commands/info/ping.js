@@ -8,7 +8,7 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages),
 
     async execute(interaction, client) {
-        const author = await interaction.guild.members.cache.get(interaction.user.id);
+        const author = interaction.guild.members.cache.get(interaction.user.id);
 
         try {
             await interaction.reply({ content: "**<:tabs:1031286951275413566>│Ping:** **`" + `${client.ws.ping}` + "`** **ms**"}).then(() => {
